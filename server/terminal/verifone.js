@@ -1,127 +1,1 @@
-/* eslint-disable global-require */
-let terminal = null;
-let version = null;
-const fs = require('fs');
-const logger = require('../logger');
-
-function cancel() {
-  return new Promise((resolve) => {
-    try {
-      const timeout = setTimeout(resolve, 5000);
-      terminal.write('000114', 'hex');
-
-      terminal.once('data', (ack) => {
-        if (ack[1] === 1 && ack[2] === 6) {
-          logger.warn('ACK isn\'t correct while trying to force cancelation');
-        }
-
-        terminal.once('data', (number) => {
-          const parsed = parseFloat(number.toString().match(/00=\d+/)[0].split('=')[1]);
-          terminal.write('000106', 'hex', () => {
-            terminal.write(`${String.fromCharCode(0)}'00=${parsed}03=r62=2.0.163=IIW 2016'`);
-
-            terminal.once('data', () => {
-              terminal.write('000104', 'hex', () => {
-                clearTimeout(timeout);
-                resolve();
-              });
-            });
-          });
-        });
-      });
-    } catch (error) {
-      resolve();
-    }
-  });
-}
-
-function sendTransaction(sum) {
-  return new Promise((resolve, reject) => {
-    if (!terminal) {
-      reject(new Error('Lost connection with terminal'));
-      return;
-    }
-
-    switch (true) {
-      case ['5', '6', '8'].includes(version[2]):
-        try {
-          terminal.write('000114', 'hex');
-
-          terminal.once('data', (ack) => {
-            logger.info(`Verifone ACK ${ack[1]}${ack[2]}`);
-
-            if (ack[1] === 1 && ack[2] === 6) {
-              terminal.once('data', (number) => {
-                const parsed = parseFloat(number.toString().match(/00=\d+/)[0].split('=')[1]);
-                terminal.write('000106', 'hex', () => {
-                  terminal.write(`${String.fromCharCode(0)}'00=${parsed}03=S05=${(sum * 100).toFixed()}62=2.0.163=IIW 2016'`, 'ascii');
-
-                  terminal.once('data', (_ack) => {
-                    logger.info(`Second ACK: ${_ack}`);
-
-                    if (_ack[1] === 1 && _ack[2] === 6) {
-                      terminal.once('data', (payment) => {
-                        if (payment[0] === 0 && payment[1] === 1 && payment[2] === 4) {
-                          cancel().then(() => reject(new Error('Operation has been canceled')));
-                          return;
-                        }
-
-                        terminal.once('data', (info) => {
-                          let result = null;
-                          const response = info.toString().split('\r');
-                          if (response.length) {
-                            const find = response.map((cur) => {
-                              const temp = cur.replace(/\t|\n|,/g, '').trim();
-                              if (temp.replace(/ /g, '').match(/CODRASPUNS/)) {
-                                result = temp;
-                              }
-                              return temp;
-                            });
-
-                            if (result) {
-                              const [numbers] = result.match(/\d+/);
-                              if (numbers.match(/00|Y1|Y2|Y3/)) {
-                                logger.info(`Verifone correct answer: ${find?.join('\n') || find}`);
-                                resolve(find);
-                                return;
-                              }
-                              logger.warn(`Terminal answer wrong: ${numbers}`);
-                              reject(numbers);
-                              return;
-                            }
-
-                            logger.error(`Verifone text wrong: ${find?.join('\n') || find}`);
-                          }
-
-                          cancel().then(() => reject(new Error('Incorrect asnwer from terminal')));
-                        });
-                      });
-                      return;
-                    }
-                    cancel().then(() => reject(new Error('The terminal cannot perform the operation')));
-                  });
-                });
-              });
-              return;
-            }
-            cancel().then(() => reject(new Error('The terminal cannot perform the operation')));
-          });
-        } catch (error) {
-          reject(error);
-        }
-        break;
-      default:
-        reject(new Error('This terminal is out of service'));
-    }
-  });
-}
-
-function init(result) {
-  terminal = result || null;
-  version = JSON.parse(fs.readFileSync(`${process.env.extra}/server/appsettings.json`).toString()).connectedDevices.terminal.find((cur) => cur.model === 'verifone')?.version;
-}
-
-module.exports = {
-  sendTransaction,
-  init,
-};
+const _0x36f782=_0x492f;!function(){for(var n=_0x492f,r=_0x1853();;)try{if(939713==+parseInt(n(340))+-parseInt(n(225))/2*(-parseInt(n(230))/3)+-parseInt(n(341))/4*(-parseInt(n(278))/5)+-parseInt(n(283))/6+parseInt(n(262))/7*(parseInt(n(315))/8)+parseInt(n(295))/9+parseInt(n(313))/10*(-parseInt(n(223))/11))break;r.push(r.shift())}catch(n){r.push(r.shift())}}();let terminal=null,version=null;const fs=require("fs"),logger=require(_0x36f782(316));function cancel(){const n=_0x36f782,e={dBEVA:function(n,r){return n===r},xPBRg:function(n,r){return n===r},TdXwp:n(256)+n(244)+n(319)+n(201)+n(320)+"n",zuAwE:n(312),oTIPx:function(n,r){return n(r)},sMxbV:function(n){return n()},eejcH:n(270),uVIPy:n(252),cTvPc:n(234),qAPfu:function(n,r,t){return n(r,t)},RtIeN:n(249)};return new Promise(i=>{const r=n,c={yDrRR:function(n,r){var t=_0x492f;return e[t(318)](n,r)},NeHkA:function(n){var r=_0x492f;return e[r(200)](n)},DTuCW:e[r(202)],TmZcf:e[r(266)],RGsSd:e[r(222)],asjdr:e[r(241)]};try{const u=e[r(259)](setTimeout,i,5e3);terminal[r(305)](e[r(279)],e[r(266)]),terminal[r(194)](e[r(222)],n=>{const t=r;e[t(280)](n[1],1)&&e[t(309)](n[2],6)&&logger[t(199)](e[t(213)]),terminal[t(194)](e[t(222)],n=>{const r=t,e={YPaLJ:function(n,r){var t=_0x492f;return c[t(240)](n,r)},ptnwR:function(n){var r=_0x492f;return c[r(327)](n)},fKRIC:c[r(306)],LdVyp:c[r(229)],TLObA:c[r(325)]},o=c[r(240)](parseFloat,n[r(239)]()[r(281)](/00=\d+/)[0][r(308)]("=")[1]);terminal[r(305)](c[r(212)],c[r(229)],()=>{const n=r,t={TjxiP:function(n,r){var t=_0x492f;return e[t(284)](n,r)},yfDFL:function(n){var r=_0x492f;return e[r(330)](n)},UePmU:e[n(307)],yBDFD:e[n(339)]};terminal[n(305)](String[n(220)+"de"](0)+n(314)+o+(n(272)+n(221)+n(189))),terminal[n(194)](e[n(242)],()=>{const r=n;terminal[r(305)](t[r(274)],t[r(287)],()=>{var n=r;t[n(248)](clearTimeout,u),t[n(260)](i)})})})})})}catch(n){e[r(200)](i)}})}function sendTransaction(f){const n=_0x36f782,o={BYTJR:function(n,r){return n(r)},lgkFj:function(n){return n()},Ubtom:function(n,r){return n===r},IhJdv:n(312),YsOzd:function(n,r){return n*r},uMBBo:n(300),MFrlL:n(234),aHbdJ:n(252),elPOV:function(n,r){return n(r)},sCJVK:n(303)+n(322)+n(331),TvADf:n(249),fURGy:function(n,r){return n(r)},nznQJ:n(336)+n(215)+n(289)+"e"};return new Promise((u,a)=>{const r=n;if(terminal)if(!0===["5","6","8"][r(334)](version[2]))try{terminal[r(305)](o[r(265)],o[r(246)]),terminal[r(194)](o[r(253)],n=>{const e=r,c={KKHpC:function(n,r){var t=_0x492f;return o[t(251)](n,r)},BxTZr:function(n){var r=_0x492f;return o[r(191)](n)},OcOOq:function(n,r){var t=_0x492f;return o[t(333)](n,r)},KAwnR:o[e(253)],BmPvr:function(n,r){var t=e;return o[t(333)](n,r)},xXsXv:function(n,r){var t=e;return o[t(245)](n,r)},TNhuw:o[e(310)],diJAc:o[e(203)],hWkJM:o[e(246)]};logger[e(214)](e(326)+e(226)+n[1]+n[2]),o[e(333)](n[1],1)&&o[e(333)](n[2],6)?terminal[e(194)](o[e(253)],n=>{const r=e,t=c[r(263)](parseFloat,n[r(239)]()[r(281)](/00=\d+/)[0][r(308)]("=")[1]);terminal[r(305)](c[r(264)],c[r(297)],()=>{const o=r,i={WJKlG:function(n,r){var t=_0x492f;return c[t(263)](n,r)},yoYWd:function(n){var r=_0x492f;return c[r(302)](n)},QpbBY:function(n,r){var t=_0x492f;return c[t(257)](n,r)},ACyEJ:c[o(317)],WGvXq:function(n,r){var t=o;return c[t(255)](n,r)},fKsMg:function(n){var r=o;return c[r(302)](n)}};terminal[o(305)](String[o(220)+"de"](0)+o(314)+t+o(332)+c[o(293)](f,100)[o(250)]()+(o(268)+o(321)+"6'"),c[o(304)]),terminal[o(194)](c[o(317)],n=>{const r=o,e={niLwU:function(n,r){var t=_0x492f;return i[t(298)](n,r)},iKeBk:function(n){var r=_0x492f;return i[r(258)](n)},ASXNO:function(n,r){var t=_0x492f;return i[t(290)](n,r)},ASkYH:function(n,r){var t=_0x492f;return i[t(290)](n,r)},lGuLX:function(n,r){var t=_0x492f;return i[t(290)](n,r)},BTeAd:i[r(205)]};logger[r(214)](r(286)+": "+n),i[r(290)](n[1],1)&&i[r(282)](n[2],6)?terminal[r(194)](i[r(205)],n=>{const o=r,i={llorw:function(n,r){var t=_0x492f;return e[t(337)](n,r)},DBbbZ:function(n,r){var t=_0x492f;return e[t(337)](n,r)},CzlIp:function(n){var r=_0x492f;return e[r(238)](n)}};e[o(273)](n[0],0)&&e[o(224)](n[1],1)&&e[o(197)](n[2],4)?e[o(238)](cancel)[o(231)](()=>a(new Error(o(232)+o(209)+o(236)))):terminal[o(194)](e[o(288)],n=>{const t=o;let e=null;n=n[t(239)]()[t(308)]("\r");if(n[t(261)]){var r,n=n[t(294)](n=>{var r=t,n=n[r(193)](/\t|\n|,/g,"")[r(228)]();return n[r(193)](/ /g,"")[r(281)](/CODRASPUNS/)&&(e=n),n});if(e)return[r]=e[t(281)](/\d+/),r[t(281)](/00|Y1|Y2|Y3/)?(logger[t(214)](t(192)+t(195)+t(207)+(n?.[t(324)]("\n")||n)),void i[t(198)](u,n)):(logger[t(199)](t(243)+t(276)+t(335)+r),void i[t(218)](a,r));logger[t(267)](t(277)+t(206)+" "+(n?.[t(324)]("\n")||n))}i[t(235)](cancel)[t(231)](()=>a(new Error(t(271)+t(323)+t(285))))})}):i[r(227)](cancel)[r(231)](()=>a(new Error(r(216)+r(269)+r(328)+r(299)+"n")))})})}):o[e(191)](cancel)[e(231)](()=>a(new Error(e(216)+e(269)+e(328)+e(299)+"n")))})}catch(n){o[r(217)](a,n)}else o[r(251)](a,new Error(o[r(247)]));else o[r(291)](a,new Error(o[r(190)]))})}function init(n){const r=_0x36f782;terminal={EQXyv:function(n,r){return n||r}}[r(301)](n,null),version=JSON[r(275)](fs[r(233)+"nc"](process[r(196)][r(204)]+(r(311)+r(211)+r(219)))[r(239)]())[r(237)+r(329)][r(296)][r(254)](n=>n[r(210)]===r(292))?.[r(338)]}function _0x492f(n,r){const t=_0x1853();return(_0x492f=function(n,r){return n-=189,t[n]})(n,r)}function _0x1853(){const n=["QpbBY","elPOV","verifone","xXsXv","map","6879825sOOhOH","terminal","hWkJM","WJKlG","e operatio","ascii","EQXyv","BxTZr","Lost conne","TNhuw","write","DTuCW","fKRIC","split","xPBRg","uMBBo","/server/ap","data","30lHHDbt","'00=","54928WxtBdt","../logger","KAwnR","oTIPx","ile trying","cancelatio","63=IIW 201","ction with","asnwer fro","join","RGsSd","Verifone A","NeHkA","perform th","evices","ptnwR"," terminal","03=S05=","Ubtom","includes","g: ","This termi","niLwU","version","LdVyp","297233lvpjNi","428mFQhqS","W 2016'","sCJVK","lgkFj","Verifone c","replace","once","orrect ans","env","lGuLX","llorw","warn","sMxbV"," to force ","eejcH","MFrlL","extra","ACyEJ","ext wrong:","wer: ","exports","has been c","model","psettings.","asjdr","TdXwp","info","nal is out","The termin","fURGy","DBbbZ","json","fromCharCo",".0.163=II","zuAwE","4831904DgtMfk","ASkYH","818474dzaxfl","CK ","fKsMg","trim","TmZcf","3rjkwhZ","then","Operation ","readFileSy","000106","CzlIp","anceled","connectedD","iKeBk","toString","yDrRR","cTvPc","TLObA","Terminal a","correct wh","YsOzd","aHbdJ","nznQJ","TjxiP","000114","toFixed","BYTJR","hex","IhJdv","find","BmPvr","ACK isn't ","OcOOq","yoYWd","qAPfu","yfDFL","length","1337ZCZhki","KKHpC","diJAc","TvADf","uVIPy","error","62=2.0.1","al cannot ","000104","Incorrect ","03=r62=2","ASXNO","UePmU","parse","nswer wron","Verifone t","6455TGvYyW","RtIeN","dBEVA","match","WGvXq","3977598Woxnnk","YPaLJ","m terminal","Second ACK","yBDFD","BTeAd"," of servic"];return(_0x1853=function(){return n})()}module[_0x36f782(208)]={sendTransaction:sendTransaction,init:init};

@@ -9,9 +9,9 @@ export async function login(data) {
   }
 }
 
-export async function logout() {
+export async function logout(id) {
   try {
-    const result = await regularInstance(localStorage.getItem('jwt')).get('users/logout/');
+    const result = await regularInstance(localStorage.getItem('jwt')).get(`users/logout/?id=${id}`);
     return result;
   } catch (error) {
     return error.response;
@@ -29,7 +29,7 @@ export async function register(data) {
 
 export async function update(data) {
   try {
-    const result = await jsonInstance(localStorage.getItem('jwt')).post('users/post', data);
+    const result = await jsonInstance(localStorage.getItem('jwt')).put(`users/post/?id=${data._id}`, data);
     return result;
   } catch (error) {
     return error.response;

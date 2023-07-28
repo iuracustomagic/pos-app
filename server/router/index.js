@@ -1,10 +1,1 @@
-/* eslint-disable global-require */
-module.exports = {
-  userRouter: require("./userRouter"),
-  settingRouter: require("./settingsRouter"),
-  inventoryRouter: require("./inventoryRouter"),
-  categoryRouter: require("./categoriesRouter"),
-  setupRouter: require("./setupRouter"),
-  transactionRouter: require("./transactionsRouter"),
-  fiscalRouter: require("./fiscalRouter"),
-};
+function _0x42c1(){var r=["ter","1765557WMbVim","./fiscalRo","./setupRou","2273008XhOUbh","ionsRouter","./inventor","609847dmSsgF","uter","Router","yRouter","./transact","30ZjWMgT","11793540TZdxXY","esRouter","504397WcDytJ","2MckQab","9zCkHhc","./userRout","199205cFkcIW","./settings","./categori","exports","868996kjCUfF"];return(_0x42c1=function(){return r})()}var _0xf55990=_0x22ac;function _0x22ac(r,e){var t=_0x42c1();return(_0x22ac=function(r,e){return t[r-=404]})(r,e)}(function(){for(var r=_0x22ac,e=_0x42c1();;)try{if(450641==+parseInt(r(419))*(-parseInt(r(420))/2)+-parseInt(r(421))/3*(-parseInt(r(427))/4)+parseInt(r(423))/5+-parseInt(r(416))/6*(parseInt(r(411))/7)+-parseInt(r(408))/8+-parseInt(r(405))/9+parseInt(r(417))/10)break;e.push(e.shift())}catch(r){e.push(e.shift())}})(),module[_0xf55990(426)]={userRouter:require(_0xf55990(422)+"er"),settingRouter:require(_0xf55990(424)+_0xf55990(413)),inventoryRouter:require(_0xf55990(410)+_0xf55990(414)),categoryRouter:require(_0xf55990(425)+_0xf55990(418)),setupRouter:require(_0xf55990(407)+_0xf55990(404)),transactionRouter:require(_0xf55990(415)+_0xf55990(409)),fiscalRouter:require(_0xf55990(406)+_0xf55990(412))};

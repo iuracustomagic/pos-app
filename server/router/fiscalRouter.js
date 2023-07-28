@@ -1,7 +1,1 @@
-const express = require('express');
-const router = express.Router();
-const fiscalCalls = require('../controllers/fiscal');
-
-router.get('/fiscal/report', fiscalCalls.execReport);
-
-module.exports = router;
+const _0x308e26=_0x12a7;function _0x12a7(e,r){const t=_0x54e3();return(_0x12a7=function(e,r){return e-=480,t[e]})(e,r)}function _0x54e3(){const e=["24uSHkMM","get","exports","20990WdYdbO","1314416XKfzuT","4Avazjh","2731104EPlkeo","23061620EAtcLB","/fiscal/re","3215592QmGTSF","801116BkEXTY","312AJakVZ","execReport","lers/fisca","Router","port","2668428rCFxhD","express","../control"];return(_0x54e3=function(){return e})()}!function(){for(var e=_0x12a7,r=_0x54e3();;)try{if(690930==-parseInt(e(482))+-parseInt(e(495))/2+-parseInt(e(481))/3*(-parseInt(e(496))/4)+parseInt(e(494))/5*(parseInt(e(483))/6)+-parseInt(e(488))/7*(parseInt(e(491))/8)+-parseInt(e(497))/9+parseInt(e(498))/10)break;r.push(r.shift())}catch(e){r.push(r.shift())}}();const express=require(_0x308e26(489)),router=express[_0x308e26(486)](),fiscalCalls=require(_0x308e26(490)+_0x308e26(485)+"l");router[_0x308e26(492)](_0x308e26(480)+_0x308e26(487),fiscalCalls[_0x308e26(484)]),module[_0x308e26(493)]=router;

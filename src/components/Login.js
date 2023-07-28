@@ -47,8 +47,7 @@ function Login() {
           className="btn btn-primary mt-2"
           type="button"
           onClick={() => sendCredentials("4840842025153")}
-        >
-          Remove in production
+        >{translate[lang].Enter}
         </button>
       </div>
     </div>

@@ -1,10 +1,1 @@
-const express = require('express');
-const router = express.Router();
-const categoriesCalls = require('../controllers/categories');
-
-router.post('/category/add', categoriesCalls.addNewCategory);
-router.get('/category/all', categoriesCalls.getAllCategories);
-router.delete('/category/delete', categoriesCalls.deleteCategory);
-router.put('/category/update', categoriesCalls.updateCategory);
-
-module.exports = router;
+const _0x4b6053=_0x5a25;function _0x2f26(){const e=["67632iVIBlO","21PKmWZX","lers/categ","all","../control","express","getAllCate","216XAUomi","546776HuQHUi","7933vhOZxE","/category/","get","addNewCate","738096TdhaBM","2583wtCTOA","exports","add","put","update","post","delete","9155MbmsuR","7551885lSRqHB","gory","70CcBRoj","Router","gories","updateCate","ories","deleteCate","6790oExVlf"];return(_0x2f26=function(){return e})()}function _0x5a25(e,t){const r=_0x2f26();return(_0x5a25=function(e,t){return e-=396,r[e]})(e,t)}!function(){for(var e=_0x5a25,t=_0x2f26();;)try{if(235420==+parseInt(e(411))*(parseInt(e(426))/2)+-parseInt(e(415))/3+-parseInt(e(402))/4+-parseInt(e(423))/5*(parseInt(e(409))/6)+-parseInt(e(403))/7*(parseInt(e(410))/8)+parseInt(e(416))/9*(-parseInt(e(401))/10)+parseInt(e(424))/11)break;t.push(t.shift())}catch(e){t.push(t.shift())}}();const express=require(_0x4b6053(407)),router=express[_0x4b6053(396)](),categoriesCalls=require(_0x4b6053(406)+_0x4b6053(404)+_0x4b6053(399));router[_0x4b6053(421)](_0x4b6053(412)+_0x4b6053(418),categoriesCalls[_0x4b6053(414)+_0x4b6053(425)]),router[_0x4b6053(413)](_0x4b6053(412)+_0x4b6053(405),categoriesCalls[_0x4b6053(408)+_0x4b6053(397)]),router[_0x4b6053(422)](_0x4b6053(412)+_0x4b6053(422),categoriesCalls[_0x4b6053(400)+_0x4b6053(425)]),router[_0x4b6053(419)](_0x4b6053(412)+_0x4b6053(420),categoriesCalls[_0x4b6053(398)+_0x4b6053(425)]),module[_0x4b6053(417)]=router;

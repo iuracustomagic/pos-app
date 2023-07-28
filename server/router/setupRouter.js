@@ -1,8 +1,1 @@
-const express = require('express');
-const router = express.Router();
-const path = require('path');
-const buildRoute = path.join(__dirname, '/../../build');
-
-router.get(['/layout', '/'], (req, res) => res.sendFile(`${buildRoute}/index.html`));
-
-module.exports = router;
+const _0x5186d5=_0x500b;function _0x500b(r,t){const e=_0x5222();return(_0x500b=function(r,t){return r-=114,e[r]})(r,t)}function _0x5222(){const r=["729etBukn","exports","get","/layout","4599903drBigt","/index.htm","4192376mTkOYK","Router","path","3982086ncnBro","sendFile","join","14rLETaY","30270yPHMmL","315969oEYrMK","364375Pbuywr","express","125288qbIvUj","/../../bui"];return(_0x5222=function(){return r})()}!function(){for(var r=_0x500b,t=_0x5222();;)try{if(545213==+parseInt(r(124))+-parseInt(r(122))/2*(parseInt(r(123))/3)+-parseInt(r(116))/4+parseInt(r(125))/5+parseInt(r(119))/6+-parseInt(r(114))/7+parseInt(r(127))/8*(parseInt(r(129))/9))break;t.push(t.shift())}catch(r){t.push(t.shift())}}();const express=require(_0x5186d5(126)),router=express[_0x5186d5(117)](),path=require(_0x5186d5(118)),buildRoute=path[_0x5186d5(121)](__dirname,_0x5186d5(128)+"ld");router[_0x5186d5(131)]([_0x5186d5(132),"/"],(r,t)=>t[_0x5186d5(120)](buildRoute+(_0x5186d5(115)+"l"))),module[_0x5186d5(130)]=router;

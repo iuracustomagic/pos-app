@@ -79,7 +79,7 @@ function Users() {
                         </td>
                         <td className="vertical-middle">
                           <span className="btn-group w-100">
-                            <button onClick={() => editUser(user._id)} className="btn btn-dark" type="button"><i className="fa fa-edit" /></button>
+                            <button onClick={() => editUser(user)} className="btn btn-dark" type="button"><i className="fa fa-edit" /></button>
                             <button onClick={() => deleteUser(user._id, idx)} className="btn btn-dark" type="button"><i className="fa fa-trash" /></button>
                           </span>
                         </td>

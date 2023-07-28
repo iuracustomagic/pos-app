@@ -1,13 +1,1 @@
-/* eslint-disable consistent-return */
-const express = require('express');
-const router = express.Router();
-const settingCalls = require('../controllers/settings');
-const { uploadImage } = require('../helpers');
-
-router.get('/settings', settingCalls.getSettings);
-router.post('/settings/post', settingCalls.setSettings);
-router.post('/settings/stop', settingCalls.killProcess);
-router.post('/settings/img', uploadImage);
-router.post('/settings/ad-img', uploadImage);
-
-module.exports = router;
+const _0xc653e3=_0x3996,express=(!function(){for(var e=_0x3996,t=_0x1509();;)try{if(462514==+parseInt(e(340))*(parseInt(e(338))/2)+parseInt(e(344))/3+parseInt(e(328))/4*(parseInt(e(334))/5)+-parseInt(e(345))/6*(-parseInt(e(341))/7)+parseInt(e(335))/8+parseInt(e(330))/9*(parseInt(e(336))/10)+-parseInt(e(354))/11)break;t.push(t.shift())}catch(e){t.push(t.shift())}}(),require(_0xc653e3(349))),router=express[_0xc653e3(337)](),settingCalls=require(_0xc653e3(355)+_0xc653e3(348)+_0xc653e3(352)),uploadImage=require(_0xc653e3(346))["uploadImage"];function _0x3996(e,t){const r=_0x1509();return(_0x3996=function(e,t){return e-=328,r[e]})(e,t)}function _0x1509(){const e=["Router","554JjhObe","killProces","1582wBcYNl","7BXyZXF","exports","get","1535559STFatG","4373244YToAoU","../helpers","/settings","lers/setti","express","img","ad-img","ngs","post","34118128KirZal","../control","3060404QREeau","getSetting","2655Imcxwz","setSetting","stop","/settings/","5emUEjI","3412600eyWmHi","23510clUZij"];return(_0x1509=function(){return e})()}router[_0xc653e3(343)](_0xc653e3(347),settingCalls[_0xc653e3(329)+"s"]),router[_0xc653e3(353)](_0xc653e3(333)+_0xc653e3(353),settingCalls[_0xc653e3(331)+"s"]),router[_0xc653e3(353)](_0xc653e3(333)+_0xc653e3(332),settingCalls[_0xc653e3(339)+"s"]),router[_0xc653e3(353)](_0xc653e3(333)+_0xc653e3(350),uploadImage),router[_0xc653e3(353)](_0xc653e3(333)+_0xc653e3(351),uploadImage),module[_0xc653e3(342)]=router;

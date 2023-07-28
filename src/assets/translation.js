@@ -2,6 +2,7 @@
 const translate = {
   ro: {
     "Scan your code": "Scanați-vă codul",
+    Enter: "Se intra",
     Products: "Produse",
     Categories: "Categorii",
     Transactions: "Tranzacții",
@@ -132,6 +133,7 @@ const translate = {
   },
   ru: {
     "Scan your code": "Сканируйте свой код",
+    Enter: "Войти",
     Products: "Продукты",
     Categories: "Категории",
     Transactions: "Транзакции",

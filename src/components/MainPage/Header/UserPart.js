@@ -9,7 +9,7 @@ import SettingButton from "./SettingButton";
 import SidePanel from "./SidePanel";
 
 function UserPart() {
-  const { username, admin } = useMemo(
+  const { _id, username, admin, superadmin, manager, code } = useMemo(
     () => parseJwt(localStorage.getItem("jwt")).data,
     []
   );
@@ -19,13 +19,14 @@ function UserPart() {
   );
   const device = useSelector((state) => state.state.initializedDevices);
   const dispatch = useDispatch();
+  const userData = { _id, username, admin, superadmin, manager, code}
 
   return (
     <div className="button-list pull-right m-t-15 user-settings">
       {admin && (
         <>
           <button
-            onClick={() => dispatch(setDialog(["UserModal"]))}
+            onClick={() => dispatch(setDialog(["UserModal", userData]))}
             type="button"
             className="btn btn-grey"
           >

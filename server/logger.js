@@ -1,18 +1,1 @@
-const { createLogger, transports, format } = require('winston');
-const { time } = require('./helpers');
-
-// levels: error, warn, info, verbose, debug, silly
-
-const logger = createLogger({
-  format: format.printf((info) => `[${time(new Date())}, ${info.level}] - ${info.message}`),
-  transports: [
-    new transports.Console({ level: 'silly' }),
-    new transports.File({
-      level: 'info',
-      filename: 'app.log',
-      dirname: `${__dirname}${process.env.IS_DEV ? '' : '/../../'}`,
-    }),
-  ],
-});
-
-module.exports = logger;
+function _0x11a2(e,r){const t=_0x3a58();return(_0x11a2=function(e,r){return e-=303,t[e]})(e,r)}const _0x29eb59=_0x11a2,{createLogger,transports,format}=(!function(){for(var e=_0x11a2,r=_0x3a58();;)try{if(378555==+parseInt(e(327))+-parseInt(e(309))/2*(-parseInt(e(314))/3)+-parseInt(e(308))/4+-parseInt(e(319))/5+parseInt(e(305))/6*(-parseInt(e(306))/7)+parseInt(e(323))/8*(-parseInt(e(316))/9)+parseInt(e(328))/10*(parseInt(e(310))/11))break;r.push(r.shift())}catch(e){r.push(r.shift())}}(),require(_0x29eb59(315))),time=require(_0x29eb59(303))["time"],logger=createLogger({format:format[_0x29eb59(313)](e=>"["+time(new Date)+", "+e[_0x29eb59(322)]+_0x29eb59(318)+e[_0x29eb59(304)]),transports:[new transports[_0x29eb59(317)]({level:_0x29eb59(311)}),new transports[_0x29eb59(324)]({level:_0x29eb59(321),filename:_0x29eb59(307),dirname:""+__dirname+(process[_0x29eb59(312)][_0x29eb59(320)]?"":_0x29eb59(325))})]});function _0x3a58(){const e=["silly","env","printf","1542LmFqUd","winston","3933PgEllI","Console","] - ","1740520jcLDKH","IS_DEV","info","level","12952ZFoOpO","File","/../../","exports","591879CDQrlY","3820zZSTNn","./helpers","message","3720948yZQDYh","7QXItFE","app.log","2573132YuNSFQ","2734qFZmhs","40403qDyVwy"];return(_0x3a58=function(){return e})()}module[_0x29eb59(326)]=logger;

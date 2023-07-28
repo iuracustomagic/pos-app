@@ -11,18 +11,22 @@
       <change beforePath="$PROJECT_DIR$/dist/win-ia32-unpacked/resources/app.asar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/win-ia32-unpacked/resources/app.asar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/inventory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/helpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/initialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/initialize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/router/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/router/userRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/schema/discount.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/schema/discount.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/translation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/translation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialog/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/Products.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialog/UserModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/UserModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialog/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/Users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainPage/Header/UserPart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainPage/Header/UserPart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainPage/Stock/Wrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainPage/Stock/Wrapper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Registration.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/productController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/productController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/userController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/slices/productSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/slices/productSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +62,27 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.build">
+    <configuration name="build-electron" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-electron" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -81,8 +105,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.server" />
+        <item itemvalue="npm.build-electron" />
       </list>
     </recent_temporary>
   </component>
@@ -100,7 +126,7 @@
       <workItem from="1664875084000" duration="6000" />
       <workItem from="1690359729683" duration="18585000" />
       <workItem from="1690439009185" duration="22397000" />
-      <workItem from="1690523865205" duration="1018000" />
+      <workItem from="1690523865205" duration="15466000" />
     </task>
     <servers />
   </component>

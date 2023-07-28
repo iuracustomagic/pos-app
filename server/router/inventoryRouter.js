@@ -1,14 +1,1 @@
-/* eslint-disable consistent-return */
-const express = require('express');
-const router = express.Router();
-const { uploadImage } = require('../helpers');
-const inventoryCalls = require('../controllers/inventory');
-
-router.get('/products', inventoryCalls.getProducts);
-router.get('/product', inventoryCalls.getProductByFilter);
-router.post('/products/update', inventoryCalls.updateProduct);
-router.post('/products/add', inventoryCalls.addProduct);
-router.post('/products/img', uploadImage);
-router.delete('/products/delete', inventoryCalls.deleteProduct);
-
-module.exports = router;
+function _0x4f3d(){const e=["16ZtNzbX","update","32506IPkSFa","/product","getProduct","updateProd","214095UGwSBG","../control","lers/inven","addProduct","1644630MUWDtd","tory","add","42uTPDRr","post","delete","get","exports","2129590KoptFP","img","ByFilter","../helpers","/products","uct","2594682yFasse","Router","12qSZNzh","express","/products/","360420WoXaZn","1561284nwfLHx","deleteProd"];return(_0x4f3d=function(){return e})()}const _0x26e202=_0x3b65;function _0x3b65(e,r){const t=_0x4f3d();return(_0x3b65=function(e,r){return e-=349,t[e]})(e,r)}!function(){for(var e=_0x3b65,r=_0x4f3d();;)try{if(314451==+parseInt(e(372))*(-parseInt(e(380))/2)+parseInt(e(376))/3+parseInt(e(375))/4+parseInt(e(364))/5+parseInt(e(359))/6*(parseInt(e(352))/7)+parseInt(e(378))/8*(-parseInt(e(370))/9)+-parseInt(e(356))/10)break;r.push(r.shift())}catch(e){r.push(r.shift())}}();const express=require(_0x26e202(373)),router=express[_0x26e202(371)](),uploadImage=require(_0x26e202(367))["uploadImage"],inventoryCalls=require(_0x26e202(353)+_0x26e202(354)+_0x26e202(357));router[_0x26e202(362)](_0x26e202(368),inventoryCalls[_0x26e202(350)+"s"]),router[_0x26e202(362)](_0x26e202(349),inventoryCalls[_0x26e202(350)+_0x26e202(366)]),router[_0x26e202(360)](_0x26e202(374)+_0x26e202(379),inventoryCalls[_0x26e202(351)+_0x26e202(369)]),router[_0x26e202(360)](_0x26e202(374)+_0x26e202(358),inventoryCalls[_0x26e202(355)]),router[_0x26e202(360)](_0x26e202(374)+_0x26e202(365),uploadImage),router[_0x26e202(361)](_0x26e202(374)+_0x26e202(361),inventoryCalls[_0x26e202(377)+_0x26e202(369)]),module[_0x26e202(363)]=router;

@@ -1,14 +1,1 @@
-/* eslint-disable import/newline-after-import */
-const express = require('express');
-const router = express.Router();
-const userCalls = require('../controllers/user');
-
-router.get('/users/user', userCalls.getUserById);
-router.get('/users/logout', userCalls.logout);
-router.get('/users/all', userCalls.getAllUsers);
-router.post('/users/login', userCalls.logging);
-router.post('/users/register', userCalls.registering);
-router.post('/users/post', userCalls.updateUser);
-router.delete('/users/user', userCalls.deleteUserById);
-
-module.exports = router;
+const _0x19184c=_0x771b;function _0x2a81(){const r=["/users/reg","post","getAllUser","ister","logout","registerin","3982566KwfoLp","../control","get","352040nrouhT","966801AGQaic","/users/pos","Router","865wguxei","delete","/users/log","exports","30726cyjSHP","ById","logging","out","express","getUserByI","lers/user","put","23535882KVjxEj","332222WeHohq","8DESKLs","/users/all","deleteUser","3514968SwxZtk","/users/use","updateUser"];return(_0x2a81=function(){return r})()}function _0x771b(r,e){const s=_0x2a81();return(_0x771b=function(r,e){return r-=299,s[r]})(r,e)}!function(){for(var r=_0x771b,e=_0x2a81();;)try{if(447550==-parseInt(r(303))+parseInt(r(319))/2+parseInt(r(320))/3+-parseInt(r(307))/4+parseInt(r(323))/5*(-parseInt(r(327))/6)+parseInt(r(316))/7*(-parseInt(r(304))/8)+parseInt(r(302))/9)break;e.push(e.shift())}catch(r){e.push(e.shift())}}();const express=require(_0x19184c(331)),router=express[_0x19184c(322)](),userCalls=require(_0x19184c(317)+_0x19184c(300));router[_0x19184c(318)](_0x19184c(308)+"r",userCalls[_0x19184c(299)+"d"]),router[_0x19184c(318)](_0x19184c(325)+_0x19184c(330),userCalls[_0x19184c(314)]),router[_0x19184c(318)](_0x19184c(305),userCalls[_0x19184c(312)+"s"]),router[_0x19184c(311)](_0x19184c(325)+"in",userCalls[_0x19184c(329)]),router[_0x19184c(311)](_0x19184c(310)+_0x19184c(313),userCalls[_0x19184c(315)+"g"]),router[_0x19184c(301)](_0x19184c(321)+"t/",userCalls[_0x19184c(309)]),router[_0x19184c(324)](_0x19184c(308)+"r",userCalls[_0x19184c(306)+_0x19184c(328)]),module[_0x19184c(326)]=router;
