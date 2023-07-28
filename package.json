@@ -1,0 +1,150 @@
+{
+  "name": "pos-agg",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "danilned",
+  "private": true,
+  "proxy": "http://localhost:5500",
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "@reduxjs/toolkit": "^1.9.2",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.2.3",
+    "bootstrap": "^5.2.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "decompress-zip": "^0.3.3",
+    "electron-updater": "^5.3.0",
+    "exceljs": "^4.3.0",
+    "express": "^4.18.1",
+    "find-process": "^1.4.7",
+    "javascript-obfuscator": "^4.0.2",
+    "jsbarcode": "^3.11.5",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.22",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "react-simple-keyboard": "^3.5.63",
+    "sass": "^1.54.8",
+    "serialport": "^10.5.0",
+    "uglify-js": "^3.17.4",
+    "web-vitals": "^2.1.4",
+    "winax": "^3.1.4",
+    "winston": "^3.8.2"
+  },
+  "homepage": "./",
+  "main": "public/electron.js",
+  "build": {
+    "appId": "pos",
+    "asar": true,
+    "asarUnpack": false,
+    "npmRebuild": false,
+    "win": {
+      "target": [
+        {
+          "target": "nsis"
+        }
+      ]
+    },
+    "icon": "public/appLogo.jpg",
+    "extraResources": [
+      "data",
+      "!data/mongod.lock",
+      "mongodb",
+      "public/images",
+      "public/ad",
+      "server/categories.json",
+      "server/appsettings.json",
+      "server/devices.json",
+      "server/time.json",
+      "server/register.bat",
+      "server/dlls",
+      "server/errored.json",
+      {
+        "from": "update/update.exe",
+        "to": "../"
+      }
+    ],
+    "files": [
+      "server/**/*",
+      "server/fiscal/connect/*",
+      "server/terminal/**/*",
+      "build/**/*",
+      "!build/images/*",
+      "!server/fiscal/build/*",
+      "!server/fiscal/main.py",
+      "!server/fiscal/main.spec",
+      "!server/fiscal/terminal/ingenico/CommandLineTool.exe",
+      "!server/appsettings.json",
+      "!server/categories.json",
+      "!server/time.json",
+      "!server/dlls/*",
+      "update/update.js",
+      "node_modules/**/*",
+      "package.json",
+      "jsconfig.json",
+      "exec.js",
+      "!main.spec"
+    ]
+  },
+  "productName": "POS-Agg",
+  "scripts": {
+    "start": "cross-env IS_DEV=true react-scripts start",
+    "electron": "npm run build-react && cross-env IS_DEV=true electron .",
+    "server-debug": "taskkill -F -IM mongod.exe & cross-env IS_DEV=true SERVER=true nodemon server/index.js",
+    "server": "taskkill -F -IM mongod.exe & cross-env IS_DEV=true SERVER=true node server/index.js",
+    "build": "node uglify.js && npm run build-electron && node return.js",
+    "build-publish": "npm run build && cross-env MODE=1 node release",
+    "build-publish-major": "cross-env MAJOR=true npm run build-publish",
+    "remove-tags": "cross-env MODE=2 node release",
+    "release": "cross-env MODE=1 node release",
+    "rebuild": "electron-rebuild --debug",
+    "py": "cd server/fiscal && pyinstaller --onefile main.py",
+    "build-react": "react-scripts build",
+    "build-electron": "taskkill -F -IM mongod.exe & react-scripts build && electron-builder -p never -w -c.extraMetadata.main=build/electron.js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "stop": "taskkill -F -IM node.exe"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "last 1 electron version",
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 electron version",
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^19.1.5",
+    "electron-builder": "^23.6.0",
+    "electron-rebuild": "^3.2.9",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.7",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
+}

@@ -1,0 +1,55 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+/README.md
+
+# testing
+/coverage
+
+# production
+/build
+/dist
+
+/parse/**/*
+/node-ffi-napi/**/*
+/build
+/server/build
+/data
+/mongodb
+/server/appsettings.json
+/server/categories.json
+/server/time.json
+/server/fiscal/build/*
+/server/fiscal/dist/*
+/server/fiscal/main.spec
+/server/terminal/ingenico/CommandLineTool.exe
+/server/app.log
+/server/*.conf
+/server/errored.json
+/main.spec
+/app.log
+/update/**/*
+/wireguard/**/*
+/dist/**/*
+/.vscode/**/*
+/uglify/**/*
+/output.json
+
+!/update/update.exe
+!/update/update.js
+!/update/start_update.bat
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

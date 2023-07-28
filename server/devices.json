@@ -1,0 +1,36 @@
+{
+  "fiscal": {
+    "datecs": [
+      {
+        "version": "FP700X",
+        "com": true
+      }
+    ]
+  },
+  "terminal": {
+    "verifone": [
+      {
+        "version": "VX520",
+        "com": false
+      },
+      {
+        "version": "VX805",
+        "com": false
+      }
+    ],
+    "ingenico": [
+      {
+        "version": "IPP350",
+        "com": true
+      }
+    ]
+  },
+  "display": {
+    "posiflex": [
+      {
+        "version": "1200",
+        "ad": true
+      }
+    ]
+  }
+}
